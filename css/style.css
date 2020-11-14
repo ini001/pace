@@ -1,0 +1,345 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            color: #000;
+            background: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        header {
+            position: sticky;
+            width: 100%;
+            display: flex;
+            background: bisque;
+            height: 60px;
+            align-items: center;
+            top: 0;
+            z-index: 9;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 auto;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+        
+        .navbar {
+            font-size: 25px;
+        }
+        
+        nav h1 {
+            font-size: 30px;
+            font-weight: normal;
+        }
+        
+        .cartbtn {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .number {
+            font-size: 18px;
+            position: absolute;
+            left: 19px;
+            top: -10px;
+            color: #fff;
+            background: orange;
+            padding: 0 3px;
+            border-radius: 5px;
+        }
+        
+        .showcase {
+            min-height: calc(100vh - 60px);
+            overflow-x: hidden;
+        }
+        
+        .slider {
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide {
+            height: 100%;
+            position: absolute;
+        }
+        
+        .imgslide {
+            height: 100%;
+        }
+        
+        .imgslide img {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .imgslide h1 {
+            text-transform: uppercase;
+            position: absolute;
+            top: 30vh;
+            left: 20px;
+            color: #fff;
+            padding: 0 30px;
+            animation: text 1s ease forwards;
+        }
+        
+        .imgslide .banner-btn {
+            position: absolute;
+            top: 37vh;
+            color: #fff;
+            left: 12vh;
+            width: 150px;
+            height: 40px;
+            border: none;
+            animation: text 1s ease forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+        
+        @keyframes text {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+        
+        .imgslide .banner-btn a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        .imgslide .banner-btn:hover {
+            background: #C30115;
+        }
+        
+        .imgslide .banner-btn a:hover {
+            color: #fff;
+            font-weight: normal;
+        }
+        
+        .products {
+            padding: 4rem 0;
+        }
+        
+        .section-title h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 5rem;
+            text-transform: capitalize;
+            letter-spacing: 0.1rem;
+        }
+        
+        .product-center {
+            width: 90vw;
+            margin: 0 auto;
+            max-width: 1170px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            column-gap: 1.5rem;
+            row-gap: 2rem;
+        }
+        
+        .product-img {
+            display: flex;
+            width: 100%;
+            min-height: 12rem;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .img-container:hover .product-img {
+            opacity: 0.5;
+        }
+        
+        .img-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .addcart-btn {
+            position: absolute;
+            top: 100px;
+            right: 0;
+            background: #DC2F36;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-weight: bold;
+            transform: translateX(101%);
+            transition: all 0.3s ease-in;
+            cursor: pointer;
+        }
+        
+        .addcart-btn:hover {
+            color: #fff;
+        }
+        
+        .img-container:hover .addcart-btn {
+            transform: translateX(0%);
+        }
+        
+        .fa-shopping-cart {
+            margin-right: 0.5rem;
+        }
+        
+        .product h3 {
+            text-transform: capitalize;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.1rem;
+        }
+        
+        .product h4 {
+            text-align: center;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: orange;
+            letter-spacing: 0.1rem;
+        }
+        
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s linear;
+            background: rgba(240, 157, 81, 0.5);
+            z-index: 999999999999999999;
+            visibility: hidden;
+        }
+        
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            background: rgb(231, 226, 221);
+            padding: 1.5rem;
+            transition: all 0.3s linear;
+            transform: translateX(100%);
+        }
+        
+        .showCart {
+            transform: translateX(0);
+        }
+        
+        .transparentBcg {
+            visibility: visible;
+        }
+        
+        @media screen and (min-width:768px) {
+            .product-img {
+                width: 100%;
+            }
+            .cart {
+                width: 30vw;
+                min-width: 450px;
+            }
+            .cart h2 {
+                margin-top: 2rem;
+            }
+        }
+        
+        .close-cart {
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: black;
+        }
+        
+        .close-cart:hover {
+            color: #DC2F36;
+        }
+        
+        .cart h2 {
+            text-transform: capitalize;
+            text-align: center;
+            letter-spacing: 0.1rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 1.5rem 0;
+        }
+        
+        .cart-item img {
+            width: 120px;
+            height: 120px;
+            margin-left: -50px;
+        }
+        
+        .cart-item h4 {
+            font-size: 0.85rem;
+            text-transform: capitalize;
+            letter-spacing: all 0.3s linear;
+        }
+        
+        .cart-item h5 {
+            margin: 0.5rem 0;
+            letter-spacing: 0.1rem;
+        }
+        
+        .item-amount {
+            text-align: center;
+        }
+        
+        .remove-item {
+            color: grey;
+            cursor: pointer;
+        }
+        
+        .fa-chevron-up,
+        .fa-chevron-down {
+            color: orange;
+            cursor: pointer;
+        }
+        
+        .cart-footer {
+            margin: 2rem;
+            text-align: center;
+            letter-spacing: 0.1rem;
+            ;
+            margin-bottom: 1rem;
+        }
+        
+        .cart-footer h3 {
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+        }
+        
+        .bannerbtn {
+            color: black;
+            background-color: #DC2F36;
+            width: 150px;
+            height: 40px;
+            border: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: text 1.5s ease-in;
+        }
+        
+        .bannerbtn:hover {
+            background-color: #0000;
+            border: 1px solid #DC2F36;
+            transition: all 0.3s linear
+        }
